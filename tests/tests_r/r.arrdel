@@ -1,0 +1,16 @@
+BEGIN {   # this is a variant of arnolds original example
+        ARGV[1] = "/dev/null"
+        ARGV[2] = "glotch"  # file open must skipped deleted argv
+        ARGV[3] = "/dev/null"
+        ARGC = 4
+        for (e in ARGV) print e
+        delete ARGV[2]
+        print "---"
+        for (e in ARGV) print e
+        print "---"
+}
+# note that input is read here
+END {
+        for (i in ARGV)
+                printf("ARGV[%d] is %s\n", i, ARGV[i])
+}

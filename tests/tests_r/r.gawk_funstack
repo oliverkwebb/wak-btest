@@ -1,0 +1,9 @@
+echo T.gawk: tests adapted from gawk test suite
+# for which thanks.
+
+awk=${awk-../a.out}
+
+# funstack:
+# ./echo '	funstack test takes 5-10 sec, replicates part of T.beebe'
+$awk -f funstack.awk funstack.in >foo 2>&1
+cmp -s foo funstack.ok || ./echo 'BAD: T.gawk funstack'

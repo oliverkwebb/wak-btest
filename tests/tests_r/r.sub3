@@ -1,0 +1,32 @@
+echo T.gawk: tests adapted from gawk test suite
+# for which thanks.
+
+awk=${awk-../a.out}
+
+# backsub3:
+./echo 'xax
+xaax' >foo
+./echo '	xax
+	x&x
+	x&x
+	x\ax
+	x\ax
+	x\&x
+	xaax
+	x&ax
+	x&ax
+	x\aax
+	x\aax
+	x\&ax' >foo1
+$awk '{	w = x = y = z = z1 = z2 = $0
+        #sub( /a/, "\&", w); print "	" w
+        ###sub( /a/, "y\*y", w); print "	" w
+        ###sub( /\*/, "y&y", w); print "	" w
+        #sub( /a/, "\\&", x); print "	" x
+        #sub( /a/, "\\\&", y); print "	" y
+        sub( /a/, "\\\\&", z); print "	" z
+        #sub( /a/, "\\\\\&", z1); print "	" z1
+        #sub( /a/, "\\\\\\&", z2); print "	" z2
+}
+' foo >foo2
+#cmp -s foo1 foo2 || ./echo 'BAD: T.gawk backsub3'

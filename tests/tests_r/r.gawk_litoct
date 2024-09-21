@@ -1,0 +1,14 @@
+echo T.gawk: tests adapted from gawk test suite
+# for which thanks.
+
+awk=${awk-../a.out}
+
+# litoct:  
+./echo 'axb
+ab
+a*b' >foo
+./echo 'no match
+no match
+match' >foo1
+$awk '{ if (/a\52b/) print "match" ; else print "no match" }' foo >foo2
+cmp -s foo1 foo2 || ./echo 'BAD: T.gawk litoct'

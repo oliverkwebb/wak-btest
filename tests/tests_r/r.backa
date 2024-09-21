@@ -1,0 +1,14 @@
+BEGIN {
+#print "\"
+#print "\\"
+#print "\\\"
+#print "\\\\"
+#print "\\\\\"
+#print "\\\\\\"
+print "\q"
+#print "\\q"
+#print "\\\q"
+#print "\\\\q"
+#print "\\\\\q"
+#print "\\\\\\q"
+}

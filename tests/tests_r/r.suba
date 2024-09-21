@@ -1,0 +1,34 @@
+BEGIN {s="xay"; r="\\\\"; print s; print r; n = sub(/a/, r, s);print n, s; print}
+
+
+
+BEGIN {s="xay"; r="\&"; print s; print r; n = sub(/a/, r, s);print n, s; print}   # mawk sees \& as \&, not &
+
+
+
+BEGIN {s="xay"; r="\\&"; print s; print r; n = sub(/a/, r, s);print n, s; print}
+
+
+
+BEGIN {s="xay"; r="\\\&"; print s; print r; n = sub(/a/, r, s);print n, s; print}  # mawk sees \\&, not \&
+
+
+
+BEGIN {s="xay"; r="\\\\&"; print s; print r; n = sub(/a/, r, s);print n, s; print}
+
+
+
+BEGIN {s="xay"; r="\\\\\&"; print s; print r; n = sub(/a/, r, s);print n, s; print}  # mawk sees \\\&, not \\&
+
+
+
+BEGIN {s="xay"; r="\\\\\\&"; print s; print r; n = sub(/a/, r, s);print n, s; print}
+
+
+
+BEGIN {s="xay"; r="\\q"; print s; print r; n = sub(/a/, r, s);print n, s; print}
+
+
+
+BEGIN {s="xay"; r="\q"; print s; print r; n = sub(/a/, r, s);print n, s; print}   # mawk sees \q, not q
+#BEGIN {s="xay"; r="\\\\"; print s; print r; n = sub(/a/, r, s);print n, s; print} # mawk/goawk (+wak for now) see \\, sub \; others sub \\

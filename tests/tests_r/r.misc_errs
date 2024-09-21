@@ -1,0 +1,18 @@
+#!/bin/sh
+
+echo T.misc: miscellaneous buglets now watched for
+
+awk=${awk-../a.out}
+
+# These should be syntax errors
+$awk . 2>foo
+grep "syntax error" foo >/dev/null || echo 1>&2 "BAD: T.misc syntax error . fails"
+
+$awk .. 2>>foo
+grep "syntax error" foo >/dev/null || echo 1>&2 "BAD: T.misc syntax error .. fails"
+
+$awk .E. 2>>foo
+grep "syntax error" foo >/dev/null || echo 1>&2 "BAD: T.misc syntax error .E. fails"
+
+$awk .++. 2>>foo
+grep "syntax error" foo >/dev/null || echo 1>&2 "BAD: T.misc syntax error .++. fails"

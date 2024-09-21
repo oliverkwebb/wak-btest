@@ -1,0 +1,5 @@
+BEGIN {
+    x = "ABC"
+    n = split(x, a, //)
+    print n, a[1], a[2], a[3]
+}

@@ -1,0 +1,8 @@
+BEGIN {
+FS = "a"
+$0 = ""
+#n = split ($0, x, /[ 	]+/)
+n = split ($0, x, FS)
+print n, length(x)
+for (e in x) print e, "(" x[e] ")"
+}

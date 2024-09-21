@@ -1,0 +1,15 @@
+wak '
+BEGIN {
+	print ARGC
+	ARGV[ARGC-1] = ""
+	for (i=0; i < ARGC; i++)
+		print ARGV[i]
+	exit
+}
+' a bc def gh >foo1
+echo "5
+wak
+a
+bc
+def
+" >foo2

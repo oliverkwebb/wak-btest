@@ -1,0 +1,17 @@
+echo T.gawk: tests adapted from gawk test suite
+# for which thanks.
+
+awk=${awk-../a.out}
+
+# backgsub:
+./echo 'x\y
+x\\y' >foo
+./echo 'x\y
+xAy
+xAy
+xAAy' >foo1
+$awk '{	x = y = $0
+        gsub( /\\\\/, "A", x); print x
+        gsub( "\\\\", "A", y); print y
+}' foo >foo2
+cmp -s foo1 foo2 || ./echo 'BAD: T.gawk backgsub'

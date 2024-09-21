@@ -1,0 +1,10 @@
+#BEGIN{ a = 2  3 * 4 foo }
+#BEGIN{ x = a || b && c }
+#BEGIN{ x = a && b || c }
+#BEGIN{ x = a > 1 && b < 2 || c }
+BEGIN{ x = a ? b : c }
+BEGIN{ x = a ? b : c ? d : e }
+BEGIN{ x = a ? b ? c : d : e }
+#BEGIN{ a = 2 * 3 ^ "123" + 2 }
+#BEGIN{ a = 2 ^ 3 ^ 4 }
+#BEGIN{ a = 2 * 3 * 4 }

@@ -1,0 +1,2 @@
+BEGIN { sub(/ana/,"anda","banana")
+		printf "the monkey ate a %s\n", "banana" }

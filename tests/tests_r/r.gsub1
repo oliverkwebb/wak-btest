@@ -1,0 +1,5 @@
+BEGIN {
+    x = "ABC_CBA"
+    gsub(/B/, "bb", x)
+    print x
+}

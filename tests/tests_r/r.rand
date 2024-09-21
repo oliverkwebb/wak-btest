@@ -1,0 +1,11 @@
+BEGIN {
+    s = srand(3)
+    s = srand(3)
+    print "seed:", s
+    print rand()
+    print rand()
+    n = srand(s)
+    print "seed:", n
+    print rand()
+    print rand()
+    }
